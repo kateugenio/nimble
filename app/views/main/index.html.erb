@@ -1,10 +1,5 @@
 <div class="fullscreen">
-	<div class="row main-page-section">
-		<div class="col-sm-12 text-center">
-			<h1 class="main-header">nimble.</h1>
-			<p style="color: #FFFFFF">Scrum projects made simple.</p>
-			<button type="button" class="btn btn-info">Sign Up</button><br>
-			<button type="button" class="btn btn-light">Login</button>
-		</div>
-	</div>
+	<%= link_to('Logout', destroy_user_session_path, method: "delete") %>
+	<h1>herro <%= @current_user.first_name %> <%= @current_user.last_name %></h1>
+	<h2>Company: <%=@current_user.company %></h2>
 </div>
