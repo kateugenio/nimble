@@ -21,3 +21,20 @@
 .margin15 {
 	margin: 15px;
 }
+.container-fluid {
+	padding: 0;
+}
+.row {
+	margin: 0;
+}
+.navbar h1, h5 {
+	color: #ffa382;
+}
+.navbar h6 {
+	color: #FFFFFF;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-right: 10px;
+}

@@ -12,6 +12,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    if user_signed_in?
+      create_company_after_registration
+    else
+    end
   end
 
   # GET /resource/edit
@@ -40,15 +44,26 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def create_company_after_registration
+    @company_name = current_user.company_name
+    @user = current_user
+    @company = Company.create(name: @company_name)
+    if @company.save
+      @user.update(company_id: @company.id)
+    else
+      flash.now[:alert] = "A problem occurred during registration, please contact Nimble."
+    end
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name])
     # devise_parameter_sanitizer.permit(:first_name, :last_name, :company, :email, :password)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :company_id])
   end
 
   # The path used after sign up.

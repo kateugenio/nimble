@@ -1,5 +1,7 @@
-<div class="fullscreen">
-	<%= link_to('Logout', destroy_user_session_path, method: "delete") %>
-	<h1>herro <%= @current_user.first_name %> <%= @current_user.last_name %></h1>
-	<h2>Company: <%=@current_user.company %></h2>
+<%= render 'layouts/navbar' %>
+
+<div class="row" id="teams-heading">
+	<div class="col-sm-12">
+		<p class="text-center">Teams</h1>
+	</div>
 </div>
