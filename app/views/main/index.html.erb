@@ -1,6 +1,6 @@
 <%= render 'layouts/navbar' %>
 
-<div class="row" id="teams-heading">
+<div class="row heading">
 	<div class="col-sm-12">
 		<p class="text-center">Teams</p>
 	</div>
@@ -23,7 +23,7 @@
 			<tbody>
 				<% current_user.company.teams.each do |team| %>
 					<tr>
-						<td><%= team.name %></td>
+						<td><%= link_to team.name , team_path(team.id) %></td>
 						<td><%= team.description %></td>
 						<td>Delete</td>
 					</tr>

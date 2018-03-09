@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
-  def backlog
+
+  def show
+    @team = Team.find(params[:id])
   end
 
   def create
