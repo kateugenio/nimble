@@ -10,7 +10,7 @@
 
     <div class="col-sm-4">
       
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'logres-form') do |f| %>
         <h2 class="text-center">Sign in</h2>
 
         <% if notice %>

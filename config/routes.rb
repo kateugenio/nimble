@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'teams/backlog'
+
+  resources :teams
+
   get 'main/index'
 
 
