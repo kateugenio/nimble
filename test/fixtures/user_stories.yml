@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  acceptance_criteria: MyText
+  estimate: 1
+  state: MyString
+  priority: MyString
+  team: one
+
+two:
+  title: MyString
+  description: MyString
+  acceptance_criteria: MyText
+  estimate: 1
+  state: MyString
+  priority: MyString
+  team: two
