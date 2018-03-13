@@ -1,15 +1,20 @@
 class TeamsController < ApplicationController
-  def backlog
+
+  def show
+    @team = Team.find(params[:id])
+    if current_user.company != @team.company
+      flash[:alert] = "You don't have access to this page!"
+      redirect_to root_path
+    end
   end
 
   def create
-  	@company = current_user.company
-  	@team = @company.teams.create(team_params)
+  	# @company = current_user.company
+  	@team = current_user.company.teams.create(team_params)
   	if @team.save
   		redirect_to root_path
   	else
-  		flash.now[:alert] = 'wrong!'
-      puts @team.errors.full_messages
+  		flash[:alert] = "Please enter a Team name"
   		redirect_to root_path
   	end
   end
