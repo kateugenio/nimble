@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @all_user_stories = @team.user_stories.all.order('order_id ASC')
     if current_user.company != @team.company
       flash[:alert] = "You don't have access to this page!"
       redirect_to root_path
