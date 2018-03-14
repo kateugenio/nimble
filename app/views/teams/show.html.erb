@@ -40,7 +40,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @team.user_stories.each do |us| %>
+				<% @all_user_stories.each do |us| %>
 					<% if us.title != nil %>
 						<tr>
 							<td><%= us.order_id %></td>
