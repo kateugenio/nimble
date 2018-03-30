@@ -1,16 +1,34 @@
-<h2>Forgot your password?</h2>
+<div class="fullscreen">
+  <div class="row main-page-section">
+    <div class="col-sm-12 text-center">
+      <h1 class="main-header">nimble.</h1>
+      <p style="color: #FFFFFF">Scrum projects made simple.</p>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="col-sm-4">
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="col-sm-4">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <h2 class="text-center">Forgot your password?</h2>
+            <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+            <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
 
-<%= render "devise/shared/links" %>
+            <div class="actions">
+                <%= f.submit "Send me reset password instructions", class: 'btn btn-info' %>
+            </div>
+        <% end %>
+
+        <div class="text-center margin15">
+            <%= render "devise/shared/links" %>
+        </div>
+
+    </div>
+
+    <div class="col-sm-4">
+    </div>
+</div>
