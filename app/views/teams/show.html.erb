@@ -44,12 +44,12 @@
 					<% if us.title != nil %>
 						<tr>
 							<td><%= us.order_id %></td>
-							<td><%= us.title %></td>
+							<td><%= link_to us.title, team_user_story_path(@team, us.id) %></td>
 							<td>User Story</td>
 							<td><%= us.estimate %></td>
 							<td><%= us.state %></td>
 							<td><%= us.priority %></td>
-							<td>Delete</td>
+							<td><%= link_to 'Delete', team_user_story_path(@team, us.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 						</tr>
 					<% end %>
 				<% end %>
