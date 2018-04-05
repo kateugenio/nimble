@@ -14,7 +14,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     super
     if user_signed_in?
       create_company_after_registration
-      send_welcome_email
+      UserMailer.welcome_email(current_user).deliver_now
     else
     end
   end
@@ -54,10 +54,6 @@ class User::RegistrationsController < Devise::RegistrationsController
     else
       flash.now[:alert] = "A problem occurred during registration, please contact Nimble."
     end
-  end
-
-  def send_welcome_email
-    UserMailer.welcome_email(current_user).deliver_now
   end
 
   # If you have extra params to permit, append them to the sanitizer.
