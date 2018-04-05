@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'katnguyen6659@gmail.com'
+  default from: 'Nimble ALM'
   layout 'mailer'
 end
