@@ -5,7 +5,13 @@
     </div>
 
     <div class="col-sm-10">
-        <h1><%= @user_story.title %></h1>
+        <h4>User Story</h4>
+        <%= form_for([@team, @team.user_stories.build]) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :title, placeholder: @user_story.title, class: 'form-control form-control-lg' %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
 </div>

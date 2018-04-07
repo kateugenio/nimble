@@ -18,6 +18,15 @@ class UserStoriesController < ApplicationController
 		@user_story = @team.user_stories.find(params[:id])
 	end
 
+	def update
+		@team = Team.find(params[:team_id])
+		if @team.user_story.update(user_story_params)
+			redirect_to team_backlog_path
+		else
+			render 'user_stories/show'
+		end
+	end
+
 	def destroy
 		@team = Team.find(params[:team_id])
 		@user_story = @team.user_stories.find(params[:id])
