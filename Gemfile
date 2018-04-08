@@ -25,6 +25,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'sprockets-rails'
 #gem 'bootstrap-sass', '~>3.2.0'
 gem 'bootstrap', '~> 4.0.0'
+# Bootswatch Bootstrap themes
+gem 'bootswatch'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
