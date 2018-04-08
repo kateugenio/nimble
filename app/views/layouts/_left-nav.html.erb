@@ -1,8 +1,25 @@
-<div id="left-nav-tree">
-	<nav class="nav flex-column">
+<nav class="navbar collapse navbar-collapse flex-column">
+  <a class="navbar-brand" href="/">
+     <h1><%= current_user.company.name %></h1>
+  </a>
+  <%= image_tag("user.png", class: 'rounded-circle') %>
+  <div style="display: none">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= current_user.first_name %> <%= current_user.last_name %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
+    </div>
+  </div>
+
+  <div id="menu-links">
 	  <%= link_to 'backlog.', team_path(@team.id), class: 'nav-link active' %>
 	  <a class="nav-link" href="#">releases.</a>
 	  <a class="nav-link" href="#">projects.</a>
 	  <a class="nav-link" href="#">products.</a>
-	</nav>
-</div>
+  </div>
+  <div class="fixed-bottom">
+    <h1 style="font-size: 2.5em;">nimble.</h1>
+  </div>
+</nav>

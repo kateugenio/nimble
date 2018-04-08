@@ -13,22 +13,35 @@
  *= require_self
  *= require_tree .
  */
- @import "bootstrap";
 
- body {
- 	font-family: "Helvetica";
- }
+$primary:       grey;
+$secondary:     #37474f;
+$success:       #28b62c;
+$info:          #03a9f4;
+$warning:       #fbe42c;
+$danger:        #ff4136;
+$light:         #eeeeee;
+$dark:          #444444;
+
+@import "bootswatch/materia/variables";
+@import "bootstrap";
+@import "bootswatch/materia/bootswatch";
+
 .margin15 {
 	margin: 15px;
 }
+/* Forces padding to 0 since Chrome automatically puts 15px left and right */
 .container-fluid {
 	padding: 0;
 }
 .row {
 	margin: 0;
 }
-.navbar h1, h5 {
-	color: #ffa382;
+.nav h1, h5 {
+	color: #000000;
+}
+.navbar {
+	box-shadow: none;
 }
 .navbar h6 {
 	color: #FFFFFF;
@@ -42,4 +55,23 @@
 	font-size: 4em;
 	font-weight: bold;
 	margin-top: 50px;
+}
+#left-nav {
+	background-color: #ffa382;
+	height: 100vh;
+}
+#left-nav-tree {
+	padding-top: 70px;
+}
+#menu-links {
+	margin-top: 100px;
+}
+#menu-links a {
+	font-size: 2em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+#menu-links a:hover {
+	color: #000000;
 }
