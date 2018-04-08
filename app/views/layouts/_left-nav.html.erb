@@ -1,4 +1,4 @@
-<nav class="navbar collapse navbar-collapse flex-column">
+<nav class="navbar collapse navbar-collapse flex-column mh-100">
   <a class="navbar-brand" href="/">
      <h1><%= current_user.company.name %></h1>
   </a>
@@ -13,12 +13,14 @@
     </div>
   </div>
 
-  <div id="menu-links">
-	  <%= link_to 'backlog.', team_path(@team.id), class: 'nav-link active' %>
-	  <a class="nav-link" href="#">releases.</a>
-	  <a class="nav-link" href="#">projects.</a>
-	  <a class="nav-link" href="#">products.</a>
-  </div>
+  <% if controller_name == 'teams' %>
+    <div id="menu-links">
+  	  <%= link_to 'backlog.', team_path(@team.id), class: 'nav-link active' %>
+  	  <a class="nav-link" href="#">releases.</a>
+  	  <a class="nav-link" href="#">projects.</a>
+  	  <a class="nav-link" href="#">products.</a>
+    </div>
+  <% end %>
   <div class="fixed-bottom">
     <h1 style="font-size: 2.5em;">nimble.</h1>
   </div>
