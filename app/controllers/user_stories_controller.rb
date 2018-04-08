@@ -18,6 +18,16 @@ class UserStoriesController < ApplicationController
 		@user_story = @team.user_stories.find(params[:id])
 	end
 
+	def update
+		@team = Team.find(params[:team_id])
+		@user_story = UserStory.find(params[:id])
+		if @user_story.update(user_story_params)
+			redirect_to team_path(@team)
+		else
+			render 'user_stories/show'
+		end
+	end
+
 	def destroy
 		@team = Team.find(params[:team_id])
 		@user_story = @team.user_stories.find(params[:id])

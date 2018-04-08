@@ -1,10 +1,42 @@
 <div class="row">
-    <div class="col-sm-2 text-left" id="left-nav">
-        <%= render 'layouts/left-nav' %>
-    </div>
+  <div class="col-sm-2 text-left" id="left-nav">
+    <%= render 'layouts/left-nav' %>
+  </div>
 
-    <div class="col-sm-10">
-        <h1><%= @user_story.title %></h1>
-    </div>
+  <div class="col-sm-10" id="show_update_us">
+    <h4>User Story</h4>
+    <%= form_for [@team, @user_story] do |f| %>
+      <div class="form-group">
+        <%= f.text_field :title, value: @user_story.title, class: 'form-control', id: 'show-us-title' %>
+      </div>
 
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_field :description, value: @user_story.description, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :acceptance_criteria %>
+            <%= f.text_area :acceptance_criteria, value: @user_story.acceptance_criteria, class: 'form-control', rows: 10 %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :estimate %>
+            <%= f.text_field :estimate, value: @user_story.estimate, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :state %>
+            <%= f.select :state, options_for_select(UserStory::STATES.each {|state| state}, selected: @user_story.state), {}, {class: 'form-control'} %>
+          </div>
+          <div class="form-group">
+            <%= f.label :priority %>
+            <%= f.select :priority, options_for_select(UserStory::PRIORITIES.each {|priority| priority}, selected: @user_story.priority), {}, {class: 'form-control'} %>
+          </div>
+        </div>
+      </div>
+      <%= f.submit 'Update', class: 'btn btn-info' %>
+    <% end %>
+  </div>
 </div>
