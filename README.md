@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+A powerful yet easy-to-use Agile Lifecycle Management web app, specifically for Scrum development.
 
-* Ruby version
+## Setup
 
-* System dependencies
+### Environment Requirements
+* Ruby 2.4.1
+* Rails 5.1.5
+* PostgreSQL 10.3
+```
+git clone https://github.com/kateugenio/nimble
+cd nimble
+bundle install
+rails db:setup
+```
 
-* Configuration
 
-* Database creation
+## Development
 
-* Database initialization
+### Run Tests with Rubocop
+```
+bundle exec rake test
+```
 
-* How to run the test suite
+### Local Server
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To start the local server:
+```
+bundle exec rails server -b 0.0.0.0 -p 3000
+````
+From your browser, head to locahost:3000
