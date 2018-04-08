@@ -20,7 +20,7 @@ rails db:setup
 
 ## Development
 
-### Run Tests with Rubocop
+### Run Tests
 ```
 bundle exec rake test
 ```
