@@ -25,6 +25,11 @@ rails db:setup
 bundle exec rake test
 ```
 
+### Mailer Account
+
+Set your mailer username and password as environment variables to enable registration and forgot password emails
+"MAILER_USERNAME" & "MAILER_PASSWORD"
+
 ### Local Server
 
 To start the local server:
