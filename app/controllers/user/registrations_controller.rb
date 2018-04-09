@@ -14,7 +14,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     super
     if user_signed_in?
       create_company_after_registration
-      UserMailer.welcome_email(current_user).deliver_now
+      UserMailer.welcome_email(current_user).deliver_now!
     else
     end
   end
