@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <% if controller_name == 'teams' %>
+  <% unless controller_name == 'main' %>
     <div id="menu-links">
   	  <%= link_to 'backlog.', team_path(@team.id), class: 'nav-link active' %>
   	  <a class="nav-link" href="#">releases.</a>
