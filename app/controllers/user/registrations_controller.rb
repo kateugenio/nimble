@@ -13,7 +13,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if user_signed_in?
-      create_company_after_registration
+      @user = current_user
+      @user.create_company_after_registration(@user)
       UserMailer.welcome_email(current_user).deliver_now!
     else
     end
@@ -45,16 +46,16 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def create_company_after_registration
-    @company_name = current_user.company_name
-    @user = current_user
-    @company = Company.create(name: @company_name)
-    if @company.save
-      @user.update(company_id: @company.id)
-    else
-      flash.now[:alert] = "A problem occurred during registration, please contact Nimble."
-    end
-  end
+  # def create_company_after_registration
+  #   @company_name = current_user.company_name
+  #   @user = current_user
+  #   @company = Company.create(name: @company_name)
+  #   if @company.save
+  #     @user.update(company_id: @company.id)
+  #   else
+  #     flash.now[:alert] = "A problem occurred during registration, please contact Nimble."
+  #   end
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

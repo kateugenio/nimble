@@ -34,6 +34,8 @@ gem 'devise'
 
 gem 'hirb'
 
+gem 'omniauth-google-oauth2'
+
 # Heroku plugin 
 gem 'rails_12factor', group: :production
 

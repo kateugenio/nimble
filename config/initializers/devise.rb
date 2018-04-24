@@ -278,4 +278,11 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   config.secret_key = '3a1d2ae9bdcb78518ab740e8326b589f547b7a3e3e54a9d8d19781963bcc6f99eb6e6443718baddead5e68534d52281c589be161d915f39e6d9c73d8bd8d03b3'
+
+  config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT_ID, Rails.application.secrets.GOOGLE_CLIENT_SECRET, {
+    scope: 'email, profile',
+    prompt: 'select_account',
+    image_aspect_ratio: 'square',
+    image_size: 50
+  }
 end

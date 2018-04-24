@@ -11,6 +11,8 @@ class User::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
+    # @user = User.from_omniauth(request.env['omniauth.auth'])
+    # session[:user_id] = @user.user_id
   end
 
   # DELETE /resource/sign_out
