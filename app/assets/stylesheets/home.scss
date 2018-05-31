@@ -1,0 +1,26 @@
+.bg {
+  background-image: image-url('homepage-bkg-image-1.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+}
+
+.shadow {
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.07);
+}
+
+#main-page-header {
+  font-size: 10em;
+}
