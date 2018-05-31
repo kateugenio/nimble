@@ -1,4 +1,5 @@
 class UserStoriesController < ApplicationController
+	before_action :authenticate_user!
 
 	before_action :validate_user, only: [:show]
 
